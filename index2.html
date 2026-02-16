@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier Nico</title>
+<style>
+  * {margin:0; padding:0; box-sizing:border-box; font-family: 'Noto Sans JP', sans-serif;}
+  body {background-color:#fdfdfd; color:#333; line-height:1.6; position:relative;}
+  a {text-decoration:none; color:inherit;}
+
+  /* --- ヘッダー --- */
+  header {
+    padding: 40px 20px;
+    text-align: center;
+    background-color:#ffffff;
+    border-bottom: 1px solid #eee;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color:#222;
+  }
+  header p {
+    font-size: 1rem;
+    color:#777;
+    margin-top:10px;
+  }
+
+  /* --- 右上アイコン --- */
+  .top-icons {
+    position:fixed;
+    top:20px;
+    right:20px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    z-index:1000;
+  }
+  .top-icons a {
+    display:flex;
+    width:50px;
+    height:50px;
+    background:#222;
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:24px;
+    transition:0.3s;
+  }
+  .top-icons a:hover {background:#555;}
+
+  /* --- スライダー --- */
+  .slider {
+    max-width:900px;
+    margin:40px auto;
+    position:relative;
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .slides img {
+    width:100%;
+    display:none;
+    object-fit:cover;
+    border-radius:12px;
+  }
+  .slides img.active {display:block;}
+
+  /* ナビボタン */
+  .prev, .next {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.4);
+    color:#fff;
+    font-size:2rem;
+    padding:10px 15px;
+    border-radius:50%;
+    cursor:pointer;
+    user-select:none;
+  }
+  .prev:hover, .next:hover {background:rgba(0,0,0,0.7);}
+  .prev {left:10px;}
+  .next {right:10px;}
+
+  /* ドットナビ */
+  .dots {
+    text-align:center;
+    margin-top:10px;
+  }
+  .dots span {
+    display:inline-block;
+    width:12px;
+    height:12px;
+    margin:0 5px;
+    background:#ccc;
+    border-radius:50%;
+    cursor:pointer;
+  }
+  .dots span.active {background:#222;}
+
+  /* --- リンクボタン（プロフィール・料金表・Q&A） --- */
+  .links {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:40px 20px;
+    gap:20px;
+  }
+  .link-card {
+    width:200px;
+    height:200px;
+    background:#f7f7f7;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+  .link-card:hover {
+    transform: translateY(-5px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  }
+  .link-card img {
+    width:60px;
+    height:60px;
+    margin-bottom:15px;
+  }
+  .link-card span {
+    font-size:1rem;
+    font-weight:600;
+    color:#222;
+  }
+
+  /* --- お知らせ / 受注状況 --- */
+  .notice {
+    text-align:center;
+    margin:40px 20px;
+    padding:20px;
+    background-color:#f7f7f7;
+    border-radius:12px;
+    font-size:1rem;
+    color:#555;
+  }
+
+  /* --- フッター --- */
+  footer {
+    text-align:center;
+    padding:20px;
+    font-size:0.9rem;
+    color:#aaa;
+  }
+  footer a {color:#aaa; margin:0 5px;}
+  footer a:hover {color:#222;}
+
+  @media(max-width:600px){
+    .links {flex-direction:column; align-items:center;}
+    .link-card {width:90%; height:180px;}
+    .top-icons {flex-direction:row; top:auto; bottom:20px; right:50%; transform:translateX(50%);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Atelier Nico</h1>
+  <p>高精度オーダーメイドコスチューム・ウィッグ・造形制作</p>
+</header>
+
+<!-- 右上アイコン -->
+<div class="top-icons">
+  <a href="https://line.me/ti/p/@xxxx" target="_blank" title="公式LINE">💬</a>
+  <a href="contact.html" title="お問い合わせフォーム">✉️</a>
+</div>
+
+<!-- スライダー -->
+<section class="slider">
+  <div class="slides">
+    <img src="hero1.jpg" class="active" alt="代表作品1">
+    <img src="hero2.jpg" alt="代表作品2">
+    <img src="hero3.jpg" alt="代表作品3">
+    <img src="hero4.jpg" alt="代表作品4">
+    <img src="hero5.jpg" alt="代表作品5">
+  </div>
+  <div class="prev">&#10094;</div>
+  <div class="next">&#10095;</div>
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+<!-- リンクボタン -->
+<section class="links">
+  <a href="profile.html" class="link-card">
+    <img src="icon-profile.png" alt="プロフィール">
+    <span>プロフィール</span>
+  </a>
+  <a href="pricing.html" class="link-card">
+    <img src="icon-pricing.png" alt="料金表">
+    <span>料金表</span>
+  </a>
+  <a href="faq.html" class="link-card">
+    <img src="icon-faq.png" alt="Q&A">
+    <span>Q&A</span>
+  </a>
+  <a href="works.html" class="link-card">
+    <img src="icon-works.png" alt="作品一覧">
+    <span>作品一覧</span>
+  </a>
+</section>
+
+
+<section class="notice">
+  現在、受注は月2件までとさせていただいております。<br>
+  お問い合わせはフォームまたはLINE公式からお願いいたします。
+</section>
+
+<footer>
+  &copy; 2026 Atelier Nico | 
+  <a href="privacy.html">個人情報の取り扱い</a> | 
+  <a href="terms.html">利用規約</a> | 
+  <a href="https://twitter.com/" target="_blank">Twitter</a> | 
+  <a href="https://instagram.com/" target="_blank">Instagram</a>
+</footer>
+
+<script>
+  // --- スライダー ---
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slides img');
+  const dots = document.querySelectorAll('.dot');
+  let slideInterval;
+
+  function showSlide(n) {
+    slides.forEach(img => img.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    slides[n].classList.add('active');
+    dots[n].classList.add('active');
+    slideIndex = n;
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  // 自動切替
+  function startSlide() {
+    slideInterval = setInterval(nextSlide, 3000);
+  }
+  function stopSlide() {
+    clearInterval(slideInterval);
+  }
+
+  // 初期表示
+  showSlide(slideIndex);
+  startSlide();
+
+  // ナビボタン
+  document.querySelector('.next').addEventListener('click', () => { nextSlide(); stopSlide(); startSlide(); });
+  document.querySelector('.prev').addEventListener('click', () => { prevSlide(); stopSlide(); startSlide(); });
+
+  // ドットナビ
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      showSlide(i);
+      stopSlide();
+      startSlide();
+    });
+  });
+</script>
+
+</body>
+</html>

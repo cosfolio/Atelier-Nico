@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q&A | Atelier Nico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {background-color:#fdfdfd; color:#333; line-height:1.8; font-family: 'Noto Sans JP', sans-serif; font-weight: 300;}
+  
+  header { padding: 60px 20px; text-align: center; background-color:#ffffff; }
+  header h1 { font-family: 'Shippori Mincho', serif; font-size: 2rem; letter-spacing: 4px; }
+
+  .container { max-width: 800px; margin: 0 auto 80px; padding: 0 20px; }
+
+  .faq-list { margin-top: 40px; }
+
+  .faq-item {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+  }
+
+  .question {
+    display: flex;
+    gap: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-family: 'Shippori Mincho', serif;
+    color: #444;
+  }
+  .question::before {
+    content: "Q";
+    color: #a0c4ff; /* 爽やかなライトブルー */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+
+  .answer {
+    display: flex;
+    gap: 15px;
+    padding-left: 5px;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  .answer::before {
+    content: "A";
+    color: #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+
+  .back-home { display: block; text-align: center; margin-top: 40px; color: #888; font-size: 0.9rem; text-decoration: none; }
+  footer { text-align:center; padding:40px; font-size:0.8rem; color:#aaa; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Q&A</h1>
+</header>
+
+<div class="container">
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="question">制作期間はどのくらいかかりますか？</div>
+      <div class="answer">
+        デザインによりますが、通常1.5ヶ月〜3ヶ月ほどお時間を頂いております。お急ぎの場合は別途ご相談ください。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">図面や資料がなくても制作可能ですか？</div>
+      <div class="answer">
+        公式の画像やご自身のイラストなど、複数の角度から確認できる資料があれば制作可能です。詳細な三面図がない場合でも、こちらからデザイン案をご提案することもできます。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">支払方法を教えてください。</div>
+      <div class="answer">
+        銀行振込（GMOあおぞらネット銀行）にて承っております。クレジットカード決済をご希望の場合は、Square経由でのオンライン決済も可能です。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">キャンセルはできますか？</div>
+      <div class="answer">
+        オーダーメイドという性質上、材料発注・制作開始後のキャンセルはご遠慮いただいております。やむを得ない場合は、進行状況に応じてキャンセル料を申し受ける場合がございます。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">送料はかかりますか？</div>
+      <div class="answer">
+        ヤマト運輸にて発送いたします。1回のお取引につき、全国一律1,500円（梱包費込み）を頂戴しております。
+      </div>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="back-home">← TOPへ戻る</a>
+</div>
+
+<footer>
+  &copy; 2026 Atelier Nico
+</footer>
+
+</body>
+</html>

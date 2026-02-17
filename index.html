@@ -3,77 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atelier Nico</title>
-<meta property="og:site_name" content="Atelier Nico">
-<meta property="og:title" content="Atelier Nico | 高精度オーダーメイドコスチューム制作">
-<meta property="og:description" content="コスチューム・ウィッグ・造形のオーダーメイド制作。あなたの理想を形にします。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://atelier-nico.vercel.app/">
-<meta property="og:image" content="https://atelier-nico.vercel.app/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
- <link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Atelier Nico | 高精度オーダーメイドコスチューム制作</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
+  /* --- 基本設定 --- */
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {background-color:#fdfdfd; color:#333; line-height:1.6; font-family: 'Noto Sans JP', sans-serif; font-weight: 300;}
+  a {text-decoration:none; color:inherit; transition: 0.3s;}
 
   /* --- ヘッダー --- */
   header {
-    padding: 40px 20px;
+    padding: 60px 20px 40px;
     text-align: center;
     background-color:#ffffff;
-    border-bottom: 1px solid #eee;
   }
- /* 全体の基本フォントを「Noto Sans JP」に変更 */
-* {
-  margin:0; 
-  padding:0; 
-  box-sizing:border-box; 
-  font-family: 'Noto Sans JP', sans-serif; /* ここを変更 */
-  font-weight: 300; /* 少し細めにすると透明感が出ます */
-}
-/* タイトル部分を上品な明朝体にする */
-header h1 {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 2.5rem;
-  letter-spacing: 4px;
-  color:#222;
-}
- /* 欧文（英語）を Montserrat にしたい場合（メニューや数字など） */
-.link-card span {
-  font-family: 'Shippori Mincho', serif; /* 明朝体で上品にする場合 */
-  /* もしモダンにしたければ 'Montserrat', 'Noto Sans JP' にしてください */
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #222;
-  letter-spacing: 1px;
-  margin-top: 10px;
-}
+  header h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 2.5rem;
+    letter-spacing: 6px;
+    color:#222;
+    margin-bottom: 15px;
+  }
+  header p {
+    font-size: 0.9rem;
+    color:#888;
+    letter-spacing: 1px;
+  }
 
-  /* --- 右上アイコン --- */
-  .top-icons {
-    position:fixed;
-    top:20px;
-    right:20px;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-    z-index:1000;
+  /* --- ナビゲーション --- */
+  nav {
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
   }
-  .top-icons a {
-    display:flex;
-    width:50px;
-    height:50px;
-    background:#222;
-    border-radius:50%;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    font-size:24px;
-    transition:0.3s;
-  }
-  .top-icons a:hover {background:#555;}
+  nav a { margin: 0 15px; color: #aaa; }
+  nav a:hover { color: #222; }
 
-  /* --- スライダー（修正ポイント） --- */
+  /* --- メインスライダー --- */
   .slider {
     max-width:600px;
     height: 70vh; /* 指定の高さ */
@@ -100,14 +72,13 @@ header h1 {
   }
   .slides img.active {display:block;}
 
-  /* ナビボタン（正円） */
- .prev, .next {
+  /* 矢印ナビゲーション */
+  .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.3);
     color: #fff;
-    font-size: 1.2rem;
     width: 44px;
     height: 44px;
     display: flex;
@@ -115,90 +86,95 @@ header h1 {
     justify-content: center;
     border-radius: 50%;
     cursor: pointer;
-    user-select: none;
-    transition: 0.3s;
     z-index: 10;
+    transition: 0.3s;
+    user-select: none;
   }
-  .prev:hover, .next:hover {background: rgba(0,0,0,0.7);}
-  .prev {left: 15px;}
-  .next {right: 15px;}
+  .prev:hover, .next:hover { background: rgba(0,0,0,0.6); }
+  .prev { left: 35px; }
+  .next { right: 35px; }
 
-  /* ドットナビ */
+  /* ドットナビゲーション */
   .dots {
     text-align:center;
-    margin-top:10px;
+    margin-top:15px;
   }
   .dots span {
     display:inline-block;
-    width:12px;
-    height:12px;
-    margin:0 5px;
+    width:10px;
+    height:10px;
+    margin:0 6px;
     background:#ccc;
     border-radius:50%;
     cursor:pointer;
+    transition: 0.3s;
   }
-  .dots span.active {background:#222;}
+  .dots span.active { background:#222; width: 20px; border-radius: 5px; }
 
-  /* --- リンクボタン --- */
-  .links {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin:40px 20px;
-    gap:20px;
+  /* --- リンクボタンセクション --- */
+  .links-grid {
+    max-width: 1000px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 20px;
   }
   .link-card {
-    width:200px;
-    height:200px;
-    background:#f7f7f7;
-    text-align:center;
-    border-radius:12px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
-    transition:0.3s;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    background: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
   .link-card:hover {
     transform: translateY(-5px);
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
   }
-  .link-card img {
-    width:60px;
-    height:60px;
-    margin-bottom:15px;
-  }
+  .link-card img { width: 45px; height: 45px; margin-bottom: 5px; }
   .link-card span {
-    font-size:1rem;
-    font-weight:600;
-    color:#222;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #222;
+    letter-spacing: 1px;
   }
 
   /* --- お知らせ --- */
   .notice {
-    text-align:center;
-    margin:40px 20px;
-    padding:20px;
-    background-color:#f7f7f7;
-    border-radius:12px;
-    font-size:1rem;
-    color:#555;
+    max-width: 800px;
+    margin: 0 auto 80px;
+    padding: 30px;
+    background: #f9fbfc;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
   }
 
   /* --- フッター --- */
   footer {
-  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-  letter-spacing: 1px;
-}
-  footer a {color:#aaa; margin:0 5px;}
-  footer a:hover {color:#222;}
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #aaa;
+  }
+  .footer-sub-links { margin-top: 15px; }
+  .footer-sub-links a { margin: 0 10px; }
 
-  @media(max-width:600px){
-    .slider { height: 50vh; } /* スマホでは高さを少し抑える */
-    .links {flex-direction:column; align-items:center;}
-    .link-card {width:90%; height:180px;}
-    .top-icons {flex-direction:row; top:auto; bottom:20px; right:50%; transform:translateX(50%);}
+  /* --- スマホ対応 --- */
+  @media(max-width:800px){
+    .links-grid { grid-template-columns: repeat(2, 1fr); }
+    .slider { height: 50vh; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
   }
 </style>
 </head>
@@ -206,64 +182,68 @@ header h1 {
 
 <header>
   <h1>Atelier Nico</h1>
-  <p>高精度オーダーメイドコスチューム・ウィッグ・造形制作</p>
+  <p>Story to Reality — 理想を形にするオーダーメイドアトリエ</p>
+  <nav>
+    <a href="worklist.html">Portfolio</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="profile.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<div class="top-icons">
-  <a href="https://line.me/ti/p/@xxxx" target="_blank" title="公式LINE">💬</a>
-  <a href="contact.html" title="お問い合わせフォーム">✉️</a>
-</div>
-
-<section class="slider">
-  <div class="slides">
-    <img src="images/test1.jpg" class="active" alt="代表作品1">
-    <img src="images/test2.jpg" alt="代表作品2">
-    <img src="images/test3.jpg" alt="代表作品3">
-    <img src="images/test4.jpg" alt="代表作品4">
-    <img src="images/test5.jpg" alt="代表作品5">
+<div class="slider-container">
+  <section class="slider">
+    <div class="slides">
+      <img src="images/test1.jpg" class="active" alt="Main Work 1">
+      <img src="images/test2.jpg" alt="Main Work 2">
+      <img src="images/test3.jpg" alt="Main Work 3">
+      <img src="images/test4.jpg" alt="Main Work 4">
+      <img src="images/test5.jpg" alt="Main Work 5">
+    </div>
+    <div class="prev">&#10094;</div>
+    <div class="next">&#10095;</div>
+  </section>
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
   </div>
-  <div class="prev">&#10094;</div>
-  <div class="next">&#10095;</div>
-</section>
-
-<div class="dots">
-  <span class="dot active"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
 </div>
 
-<section class="links">
+<section class="links-grid">
   <a href="profile.html" class="link-card">
-    <img src="images/icon-profile.png" alt="Profile">
+    <img src="images/icon-profile.png" alt="プロフィール">
     <span>Profile</span>
   </a>
   <a href="pricing.html" class="link-card">
     <img src="images/icon-pricing.png" alt="料金表">
-    <span>料金表</span>
+    <span>Pricing</span>
   </a>
   <a href="faq.html" class="link-card">
     <img src="images/icon-faq.png" alt="Q&A">
     <span>Q&A</span>
   </a>
-  <a href="works.html" class="link-card">
-    <img src="images/icon-works.png" alt="Gallery">
-    <span>Gallery</span>
+  <a href="gallery.html" class="link-card">
+    <img src="images/icon-works.png" alt="作品一覧">
+    <span>Portfolio</span>
   </a>
 </section>
 
 <section class="notice">
-  現在、受注は月2件までとさせていただいております。<br>
-  お問い合わせはフォームまたはLINE公式からお願いいたします。
+  現在、個人のお客様からのご依頼は <strong><a href="https://line.me/ti/p/@xxxx" style="text-decoration: underline; color: #222;">公式LINE</a></strong> にて承っております。<br>
+  法人・企業様はコンタクトフォームよりお問い合わせください。
 </section>
 
 <footer>
-  &copy; 2026 Atelier Nico | 
-  <a href="privacy.html">個人情報の取り扱い</a> | 
-  <a href="terms.html">利用規約</a> | 
-  <a href="https://twitter.com/" target="_blank">Twitter</a> | 
-  <a href="https://instagram.com/" target="_blank">Instagram</a>
+  <p>&copy; 2026 Atelier Nico</p>
+  <div class="footer-sub-links">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a> | 
+    <a href="contact.html">Contact</a> | 
+    <a href="https://twitter.com/xxx">Twitter</a> | 
+    <a href="https://instagram.com/xxx">Instagram</a>
+  </div>
 </footer>
 
 <script>
@@ -275,49 +255,30 @@ header h1 {
   function showSlide(n) {
     slides.forEach(img => img.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
-    slides[n].classList.add('active');
-    dots[n].classList.add('active');
-    slideIndex = n;
+    
+    slideIndex = (n + slides.length) % slides.length;
+    
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
   }
 
-  function nextSlide() {
-    slideIndex = (slideIndex + 1) % slides.length;
-    showSlide(slideIndex);
-  }
+  function nextSlide() { showSlide(slideIndex + 1); }
+  function prevSlide() { showSlide(slideIndex - 1); }
 
-  function prevSlide() {
-    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-    showSlide(slideIndex);
-  }
+  function startSlide() { slideInterval = setInterval(nextSlide, 4000); }
+  function stopSlide() { clearInterval(slideInterval); }
 
-  function startSlide() {
-    slideInterval = setInterval(nextSlide, 3000);
-  }
-  function stopSlide() {
-    clearInterval(slideInterval);
-  }
-
-  showSlide(slideIndex);
-  startSlide();
-
-  document.querySelector('.next').addEventListener('click', () => { nextSlide(); stopSlide(); startSlide(); });
-  document.querySelector('.prev').addEventListener('click', () => { prevSlide(); stopSlide(); startSlide(); });
+  // イベントリスナー
+  document.querySelector('.next').onclick = () => { stopSlide(); nextSlide(); startSlide(); };
+  document.querySelector('.prev').onclick = () => { stopSlide(); prevSlide(); startSlide(); };
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      showSlide(i);
-      stopSlide();
-      startSlide();
-    });
+    dot.onclick = () => { stopSlide(); showSlide(i); startSlide(); };
   });
+
+  // 初期化
+  startSlide();
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-

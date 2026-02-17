@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Atelier Nico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+  /* 全体の基本設定 */
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {background:#fdfdfd; color:#333; line-height:1.6; font-family:'Noto Sans JP', sans-serif; font-weight: 300;}
+  a {text-decoration:none; color:inherit;}
+
+  /* --- ヘッダー（他のページと統一） --- */
+  header {
+    padding:60px 20px 30px;
+    text-align:center;
+    background:#fff;
+  }
+  header h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    color:#222;
+    margin-bottom: 20px;
+  }
+  nav {
+    margin-top:10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+  }
+  nav a {
+    margin:0 15px;
+    font-size:0.85rem;
+    color:#888;
+    transition:0.3s;
+    text-transform: uppercase;
+  }
+  nav a:hover {color:#222;}
+
+  /* --- メインタイトル --- */
+  .main-title {
+    text-align:center;
+    margin:20px 20px 40px;
+    font-family: 'Shippori Mincho', serif;
+    font-size:1.5rem;
+    color:#444;
+    font-weight:400;
+  }
+
+  /* --- 作品グリッド（ギャラリー風にアレンジ） --- */
+  .portfolio {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap:25px;
+    padding:0 20px 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .portfolio-item {
+    position: relative;
+    overflow:hidden;
+    border-radius:12px;
+    background:#fff;
+    /* 縦長に統一してギャラリー感を出す */
+    aspect-ratio: 3 / 4;
+  }
+
+  .portfolio-item img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition: transform 0.6s ease;
+  }
+
+  /* ホバー時の演出（他のギャラリーと統一） */
+  .portfolio-item:hover img {
+    transform: scale(1.08);
+  }
+
+  /* 作品タイトル（オーバーレイ形式） */
+  .item-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-align: left;
+  }
+
+  .portfolio-item:hover .item-info {
+    opacity: 1;
+  }
+
+  .item-info h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: 'Shippori Mincho', serif;
+  }
+
+  .item-info span {
+    font-size: 0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  /* --- フッター --- */
+  footer {
+    text-align:center;
+    padding:40px;
+    font-size:0.8rem;
+    color:#aaa;
+  }
+
+  @media(max-width:600px){
+    .portfolio {grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;}
+    header h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Atelier Nico</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="worklist.html">Portfolio</a>
+    <a href="profile.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<h2 class="main-title">Portfolio</h2>
+
+<section class="portfolio">
+  <a href="costume1.html" class="portfolio-item">
+    <img src="images/costume1-thumb.jpg" alt="衣装1">
+    <div class="item-info">
+      <span>Costume</span>
+      <h3>魔法少女風ドレスセット</h3>
+    </div>
+  </a>
+
+  <a href="costume2.html" class="portfolio-item">
+    <img src="images/costume2-thumb.jpg" alt="衣装2">
+    <div class="item-info">
+      <span>Costume</span>
+      <h3>レザージャケットセット</h3>
+    </div>
+  </a>
+
+  <a href="wig1.html" class="portfolio-item">
+    <img src="images/wig1-thumb.jpg" alt="ウィッグ1">
+    <div class="item-info">
+      <span>Wig</span>
+      <h3>キャラクターセットウィッグ</h3>
+    </div>
+  </a>
+
+  <a href="prop1.html" class="portfolio-item">
+    <img src="images/prop1-thumb.jpg" alt="造形1">
+    <div class="item-info">
+      <span>Prop</span>
+      <h3>装飾用杖</h3>
+    </div>
+  </a>
+</section>
+
+<footer>
+  &copy; 2026 Atelier Nico
+</footer>
+
+</body>
+</html>

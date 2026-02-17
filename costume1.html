@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work Detail | Atelier Nico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {background-color:#fdfdfd; color:#333; line-height:1.8; font-family: 'Noto Sans JP', sans-serif; font-weight: 300;}
+  a {text-decoration:none; color:inherit;}
+
+  header { padding: 40px 20px; text-align: center; background-color:#ffffff; }
+  header h1 { font-family: 'Shippori Mincho', serif; font-size: 1.8rem; letter-spacing: 4px; }
+
+  .container { max-width: 1000px; margin: 0 auto 80px; padding: 0 20px; display: flex; gap: 40px; }
+
+  /* --- 左側：画像エリア --- */
+  .image-gallery { flex: 1.2; }
+  
+  .main-image-container {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f0f0f0;
+    margin-bottom: 15px;
+  }
+  .main-image-container img {
+    width: 100%; height: 100%; object-fit: contain; /* 衣装全体が見えるようにcontain */
+    transition: opacity 0.3s ease;
+  }
+
+  .thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  .thumbnail-grid img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+    border: 1px solid #eee;
+  }
+  .thumbnail-grid img:hover, .thumbnail-grid img.active { opacity: 1; border-color: #a0c4ff; }
+
+  /* --- 右側：詳細エリア --- */
+  .details { flex: 0.8; }
+  .work-category { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; }
+  .work-title { font-family: 'Shippori Mincho', serif; font-size: 1.8rem; margin: 10px 0 20px; color: #222; }
+  
+  .description { font-size: 0.95rem; color: #555; margin-bottom: 30px; }
+  
+  .spec-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 0.9rem; }
+  .spec-table th, .spec-table td { padding: 12px 0; border-bottom: 1px solid #eee; text-align: left; }
+  .spec-table th { width: 100px; color: #888; font-weight: 400; }
+
+  .contact-button {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    background: #222;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.3s;
+  }
+  .contact-button:hover { background: #555; }
+
+  .back-link { display: block; margin-top: 30px; text-align: center; font-size: 0.85rem; color: #aaa; }
+
+  /* --- スマホ対応 --- */
+  @media (max-width: 800px) {
+    .container { flex-direction: column; }
+    .image-gallery, .details { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Atelier Nico</h1>
+</header>
+
+<div class="container">
+  <div class="image-gallery">
+    <div class="main-image-container">
+      <img src="images/costume1-main.jpg" id="mainImage" alt="作品メイン画像">
+    </div>
+    <div class="thumbnail-grid">
+      <img src="images/costume1-main.jpg" class="active" onclick="changeImage(this.src, this)">
+      <img src="images/costume1-back.jpg" onclick="changeImage(this.src, this)">
+      <img src="images/costume1-detail1.jpg" onclick="changeImage(this.src, this)">
+      <img src="images/costume1-detail2.jpg" onclick="changeImage(this.src, this)">
+      <img src="images/costume1-prop.jpg" onclick="changeImage(this.src, this)">
+    </div>
+  </div>
+
+  <div class="details">
+    <span class="work-category">Costume Order</span>
+    <h2 class="work-title">魔法少女風ドレスセット</h2>
+    
+    <div class="description">
+      上品な光沢のあるサテンと、何層にも重ねたオーガンジーを使用し、360度どこから見ても華やかなシルエットにこだわりました。胸元のブローチは樹脂粘土による造形、パニエは着心地を重視した柔らかなチュールを採用しています。
+    </div>
+
+    <table class="spec-table">
+      <tr><th>制作期間</th><td>約1.5ヶ月</td></tr>
+      <tr><th>主な素材</th><td>サテン、オーガンジー、樹脂、レース</td></tr>
+      <tr><th>セット内容</th><td>ワンピース、チョーカー、髪飾り、パニエ</td></tr>
+      <tr><th>参考価格</th><td>¥95,000〜</td></tr>
+    </table>
+
+    <a href="contact.html" class="contact-button">ORDER / INQUIRY</a>
+    
+    <a href="worklist.html" class="back-link">← 作品一覧へ戻る</a>
+  </div>
+</div>
+
+<script>
+  function changeImage(src, thumb) {
+    // メイン画像を切り替え
+    const mainImg = document.getElementById('mainImage');
+    mainImg.style.opacity = '0'; // 一瞬消す（フェード効果）
+    
+    setTimeout(() => {
+      mainImg.src = src;
+      mainImg.style.opacity = '1';
+    }, 200);
+
+    // サムネイルのactiveクラスを付け替え
+    const thumbnails = document.querySelectorAll('.thumbnail-grid img');
+    thumbnails.forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+  }
+</script>
+
+<footer>
+  <p style="text-align:center; padding:40px; font-size:0.8rem; color:#aaa;">&copy; 2026 Atelier Nico</p>
+</footer>
+
+</body>
+</html>

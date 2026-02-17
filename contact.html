@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Atelier Nico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {background-color:#fdfdfd; color:#333; line-height:1.8; font-family: 'Noto Sans JP', sans-serif; font-weight: 300;}
+  
+  header { padding: 60px 20px 30px; text-align: center; background-color:#ffffff; }
+  header h1 { font-family: 'Shippori Mincho', serif; font-size: 2rem; letter-spacing: 4px; }
+
+  .container { max-width: 700px; margin: 0 auto 80px; padding: 0 20px; }
+
+  .contact-intro { text-align: center; margin-bottom: 40px; color: #666; font-size: 0.95rem; }
+  .line-banner {
+    background: #f0fdf4; border: 1px solid #dcfce7; padding: 20px;
+    border-radius: 12px; text-align: center; margin-bottom: 50px;
+  }
+  .line-link { color: #16a34a; font-weight: 500; text-decoration: underline; }
+
+  /* フォームスタイル */
+  .form-group { margin-bottom: 25px; }
+  .form-group label {
+    display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .form-group label span {
+    background: #ffeded; color: #e54b4b; font-size: 0.7rem;
+    padding: 2px 6px; border-radius: 3px; margin-left: 10px; vertical-align: middle;
+  }
+  
+  input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;
+    font-size: 1rem; font-family: inherit; background: #fff;
+  }
+  textarea { height: 150px; resize: vertical; }
+
+  .submit-btn {
+    display: block; width: 100%; padding: 18px; background: #222; color: #fff;
+    border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;
+    font-family: 'Montserrat', sans-serif; letter-spacing: 2px; transition: 0.3s;
+  }
+  .submit-btn:hover { background: #555; }
+
+  footer { text-align:center; padding:40px; font-size:0.8rem; color:#aaa; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Contact</h1>
+</header>
+
+<div class="container">
+  <div class="line-banner">
+    <p>個人のお客様（コスプレ衣装・個人用オーダー等）は、<br>
+    やり取りがスムーズな <strong><a href="https://line.me/ti/p/@xxxx" class="line-link">公式LINE</a></strong> より承っております。</p>
+  </div>
+
+  <div class="contact-intro">
+    法人・企業様のお問い合わせは、以下のフォームよりお願いいたします。<br>
+    3営業日以内に担当より折り返しご連絡させていただきます。
+  </div>
+
+  <form action="https://formspree.io/f/your-id" method="POST">
+    
+    <div class="form-group">
+      <label>貴社名 / 団体名<span>必須</span></label>
+      <input type="text" name="company" placeholder="株式会社〇〇" required>
+    </div>
+
+    <div class="form-group">
+      <label>部署名</label>
+      <input type="text" name="department" placeholder="制作部 担当名">
+    </div>
+
+    <div class="form-group">
+      <label>お名前<span>必須</span></label>
+      <input type="text" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label>メールアドレス<span>必須</span></label>
+      <input type="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label>お問い合わせ項目<span>必須</span></label>
+      <select name="subject" required>
+        <option value="">選択してください</option>
+        <option value="衣装制作依頼">衣装制作のご依頼</option>
+        <option value="造形・小道具制作">造形・小道具制作のご依頼</option>
+        <option value="展示・イベント用衣装">展示・イベント用衣装の相談</option>
+        <option value="その他">その他</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>ご予算の目安</label>
+      <input type="text" name="budget" placeholder="例：30万円〜50万円程度">
+    </div>
+
+    <div class="form-group">
+      <label>希望納期</label>
+      <input type="text" name="deadline" placeholder="例：2026年6月末頃">
+    </div>
+
+    <div class="form-group">
+      <label>お問い合わせ内容<span>必須</span></label>
+      <textarea name="message" placeholder="制作希望のキャラクター名、点数、サイズ感など、詳細をご記入いただけますとスムーズです。" required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">SEND MESSAGE</button>
+  </form>
+
+  <a href="index.html" style="display:block; text-align:center; margin-top:40px; color:#aaa; font-size:0.85rem;">← TOPへ戻る</a>
+</div>
+
+<footer>&copy; 2026 Atelier Nico</footer>
+
+</body>
+</html>

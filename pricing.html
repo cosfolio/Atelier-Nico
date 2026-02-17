@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Atelier Nico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {background-color:#fdfdfd; color:#333; line-height:1.8; font-family: 'Noto Sans JP', sans-serif; font-weight: 300;}
+  a {text-decoration:none; color:inherit;}
+
+  header {
+    padding: 60px 20px;
+    text-align: center;
+    background-color:#ffffff;
+  }
+  header h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    color:#222;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+  }
+
+  .intro {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #666;
+  }
+
+  /* --- 料金テーブル --- */
+  .price-section {
+    margin-bottom: 60px;
+  }
+  .section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .section-title::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #a0c4ff; /* ライトブルーのアクセント */
+    margin-right: 15px;
+    border-radius: 50%;
+  }
+
+  .price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+  }
+  .price-item .name { font-weight: 500; }
+  .price-item .price { font-family: 'Montserrat', sans-serif; font-weight: 500; }
+
+  /* --- 事例紹介 --- */
+  .example-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  .example-card h4 { margin-bottom: 10px; font-weight: 500; }
+  .example-card p { font-size: 0.9rem; color: #777; }
+  .example-tag {
+    display: inline-block;
+    background: #fff;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    border: 1px solid #eee;
+  }
+
+  .note {
+    font-size: 0.85rem;
+    color: #888;
+    background: #fff9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ffebeb;
+  }
+
+  footer { text-align:center; padding:40px; font-size:0.8rem; color:#aaa; }
+  .back-home { display: block; text-align: center; margin-top: 40px; color: #888; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Pricing</h1>
+</header>
+
+<div class="container">
+  <p class="intro">
+    Atelier Nicoでは、一点一点丁寧なヒアリングに基づき制作しております。<br>
+    以下はあくまで目安の料金となります。詳細はお見積りにてお伝えいたします。
+  </p>
+
+  <section class="price-section">
+    <h3 class="section-title">Costume</h3>
+    <div class="price-item">
+      <span class="name">フルセット（上下・小物込み）</span>
+      <span class="price">¥80,000〜</span>
+    </div>
+    <div class="price-item">
+      <span class="name">トップスのみ</span>
+      <span class="price">¥35,000〜</span>
+    </div>
+    <div class="price-item">
+      <span class="name">特殊造形パーツを含む衣装</span>
+      <span class="price">¥120,000〜</span>
+    </div>
+  </section>
+
+  <section class="price-section">
+    <h3 class="section-title">Option</h3>
+    <div class="price-item">
+      <span class="name">ウィッグセット（カット・セット）</span>
+      <span class="price">¥15,000〜</span>
+    </div>
+    <div class="price-item">
+      <span class="name">特殊武器・造形物</span>
+      <span class="price">要相談</span>
+    </div>
+  </section>
+
+  <section class="price-section">
+    <h3 class="section-title">Case Studies</h3>
+    
+    <div class="example-card">
+      <h4>魔法少女風ドレスセット</h4>
+      <p>サテン、オーガンジーを多用したフリル中心の構成。パニエ・髪飾り込み。</p>
+      <span class="example-tag">参考価格：¥95,000 / 制作期間：約1.5ヶ月</span>
+    </div>
+
+    <div class="example-card">
+      <h4>戦闘服風レザージャケットセット</h4>
+      <p>合成皮革を使用したタイトなシルエット。ベルトやポーチなどの小物一式込み。</p>
+      <span class="example-tag">参考価格：¥110,000 / 制作期間：約2ヶ月</span>
+    </div>
+  </section>
+
+  <div class="note">
+    ※材料費の変動やデザインの複雑さにより価格は上下いたします。<br>
+    ※着手金として、総額の50%を前払いにて頂戴しております。
+  </div>
+
+  <a href="index.html" class="back-home">← TOPへ戻る</a>
+</div>
+
+<footer>
+  &copy; 2026 Atelier Nico
+</footer>
+
+</body>
+</html>

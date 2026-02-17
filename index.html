@@ -11,12 +11,10 @@
 <meta property="og:url" content="https://atelier-nico.vercel.app/">
 <meta property="og:image" content="https://atelier-nico.vercel.app/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
 <style>
-<link rel="icon" href="images/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  * {margin:0; padding:0; box-sizing:border-box; font-family: 'Noto Sans JP', sans-serif;}
-  body {background-color:#fdfdfd; color:#333; line-height:1.6; position:relative;}
-  a {text-decoration:none; color:inherit;}
 
   /* --- ヘッダー --- */
   header {
@@ -35,21 +33,21 @@
 }
 /* タイトル部分を上品な明朝体にする */
 header h1 {
-  font-family: 'Shippori Mincho', serif; /* 明朝体に変更 */
+  font-family: 'Shippori Mincho', serif;
   font-size: 2.5rem;
-  letter-spacing: 4px; /* 文字の間隔を広げるとよりお洒落に */
+  letter-spacing: 4px;
   color:#222;
 }
  /* 欧文（英語）を Montserrat にしたい場合（メニューや数字など） */
-.link-card span, footer {
-  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+.link-card span {
+  font-family: 'Shippori Mincho', serif; /* 明朝体で上品にする場合 */
+  /* もしモダンにしたければ 'Montserrat', 'Noto Sans JP' にしてください */
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #222;
   letter-spacing: 1px;
+  margin-top: 10px;
 }
-  header p {
-    font-size: 1rem;
-    color:#777;
-    margin-top:10px;
-  }
 
   /* --- 右上アイコン --- */
   .top-icons {
@@ -190,11 +188,9 @@ header h1 {
 
   /* --- フッター --- */
   footer {
-    text-align:center;
-    padding:20px;
-    font-size:0.9rem;
-    color:#aaa;
-  }
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  letter-spacing: 1px;
+}
   footer a {color:#aaa; margin:0 5px;}
   footer a:hover {color:#222;}
 
@@ -318,6 +314,7 @@ header h1 {
 
 </body>
 </html>
+
 
 
 

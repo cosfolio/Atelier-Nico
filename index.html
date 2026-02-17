@@ -111,70 +111,109 @@
   }
   .dots span.active { background:#222; width: 20px; border-radius: 5px; }
 
-  /* --- リンクボタンセクション --- */
+/* --- Newsセクションのスタイル --- */
+  .news-section {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+  }
+  .news-header {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  .news-en { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.2rem; 
+    letter-spacing: 2px; 
+    color: #222;
+  }
+  .news-jp { 
+    font-size: 0.75rem; 
+    color: #aaa; 
+    letter-spacing: 1px;
+  }
+
+  .news-list { list-style: none; }
+  .news-list li {
+    display: flex;
+    gap: 20px;
+    padding: 12px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #f0f0f0;
+  }
+  .news-list .date { 
+    font-family: 'Montserrat', sans-serif; 
+    color: #888; 
+    width: 100px; 
+    flex-shrink: 0; 
+  }
+  .news-list .content { 
+    color: #444; 
+    line-height: 1.5;
+  }
+
+  /* スマホでの表示調整 */
+  @media(max-width:600px){
+    .news-list li { flex-direction: column; gap: 5px; }
+    .news-list .date { font-size: 0.8rem; }
+  }
+
+/* --- リンクカードセクション（横並びを維持しつつ独立させる） --- */
   .links-grid {
     max-width: 1000px;
-    margin: 60px auto;
+    margin: 60px auto 40px; /* 下の余白を調整 */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 0 20px;
-  }
-  .link-card {
-    background: #fff;
-    padding: 40px 20px;
-    text-align: center;
-    border-radius: 15px;
-    border: 1px solid #eee;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-  }
-  .link-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  }
-  .link-card img { width: 45px; height: 45px; margin-bottom: 5px; }
-  .link-card span {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #222;
-    letter-spacing: 1px;
+    clear: both; /* 回り込みを防止 */
   }
 
-  /* --- お知らせ --- */
+  /* --- お知らせセクション（幅を整えて中央配置） --- */
   .notice {
     max-width: 800px;
     margin: 0 auto 80px;
-    padding: 30px;
+    padding: 40px 30px;
     background: #f9fbfc;
     border-radius: 15px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #666;
+    line-height: 1.8;
   }
 
-  /* --- フッター --- */
+  /* --- フッター（一番下に横幅いっぱいで配置） --- */
   footer {
+    width: 100%;
     padding: 60px 20px;
     text-align: center;
     border-top: 1px solid #eee;
+    background: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
     color: #aaa;
+    clear: both;
   }
-  .footer-sub-links { margin-top: 15px; }
-  .footer-sub-links a { margin: 0 10px; }
+  .footer-sub-links { 
+    margin-top: 20px; 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .footer-sub-links a { 
+    color: #aaa;
+    text-decoration: none;
+  }
+  .footer-sub-links a:hover { color: #222; }
 
-  /* --- スマホ対応 --- */
+  /* スマホ対応：カードを2列にする */
   @media(max-width:800px){
     .links-grid { grid-template-columns: repeat(2, 1fr); }
-    .slider { height: 50vh; }
-    .prev { left: 10px; }
-    .next { right: 10px; }
   }
 </style>
 </head>
@@ -212,6 +251,23 @@
   </div>
 </div>
 
+<section class="news-section">
+  <div class="news-header">
+    <span class="news-en">News</span>
+    <span class="news-jp">最新のお知らせ</span>
+  </div>
+  <ul class="news-list">
+    <li>
+      <span class="date">2026.02.17</span>
+      <span class="content">現在の最短納期は2026年5月中旬以降となります。</span>
+    </li>
+    <li>
+      <span class="date">2026.02.10</span>
+      <span class="content">ギャラリーに新作「魔法少女風ドレス」の作例を追加しました。</span>
+    </li>
+  </ul>
+</section>
+
 <section class="links-grid">
   <a href="profile.html" class="link-card">
     <img src="images/icon-profile.png" alt="プロフィール">
@@ -225,7 +281,7 @@
     <img src="images/icon-faq.png" alt="Q&A">
     <span>Q&A</span>
   </a>
-  <a href="gallery.html" class="link-card">
+  <a href="worklist.html" class="link-card">
     <img src="images/icon-works.png" alt="作品一覧">
     <span>Portfolio</span>
   </a>

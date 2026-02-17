@@ -52,38 +52,55 @@
   }
   .top-icons a:hover {background:#555;}
 
-  /* --- スライダー --- */
+  /* --- スライダー（修正ポイント） --- */
   .slider {
-    max-width:900px;
+    max-width:600px;
+    height: 70vh; /* 指定の高さ */
     margin:40px auto;
     position:relative;
     border-radius:12px;
     overflow:hidden;
+    /* 背景に色をつける場合はここ（任意） */
+    background: #f0f0f0; 
   }
+  
+  .slides {
+    width: 100%;
+    height: 100%;
+  }
+
   .slides img {
     width:100%;
+    height:100%;
     display:none;
-    object-fit:cover;
+    /* --- 修正：トリミングせず全体を表示 --- */
+    object-fit: contain; 
     border-radius:12px;
   }
   .slides img.active {display:block;}
 
-  /* ナビボタン */
-  .prev, .next {
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,0.4);
-    color:#fff;
-    font-size:2rem;
-    padding:10px 15px;
-    border-radius:50%;
-    cursor:pointer;
-    user-select:none;
+  /* ナビボタン（正円） */
+ .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    font-size: 1.2rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s;
+    z-index: 10;
   }
-  .prev:hover, .next:hover {background:rgba(0,0,0,0.7);}
-  .prev {left:10px;}
-  .next {right:10px;}
+  .prev:hover, .next:hover {background: rgba(0,0,0,0.7);}
+  .prev {left: 15px;}
+  .next {right: 15px;}
 
   /* ドットナビ */
   .dots {
@@ -101,7 +118,7 @@
   }
   .dots span.active {background:#222;}
 
-  /* --- リンクボタン（プロフィール・料金表・Q&A） --- */
+  /* --- リンクボタン --- */
   .links {
     display:flex;
     flex-wrap:wrap;
@@ -137,7 +154,7 @@
     color:#222;
   }
 
-  /* --- お知らせ / 受注状況 --- */
+  /* --- お知らせ --- */
   .notice {
     text-align:center;
     margin:40px 20px;
@@ -159,6 +176,7 @@
   footer a:hover {color:#222;}
 
   @media(max-width:600px){
+    .slider { height: 50vh; } /* スマホでは高さを少し抑える */
     .links {flex-direction:column; align-items:center;}
     .link-card {width:90%; height:180px;}
     .top-icons {flex-direction:row; top:auto; bottom:20px; right:50%; transform:translateX(50%);}
@@ -172,13 +190,11 @@
   <p>高精度オーダーメイドコスチューム・ウィッグ・造形制作</p>
 </header>
 
-<!-- 右上アイコン -->
 <div class="top-icons">
   <a href="https://line.me/ti/p/@xxxx" target="_blank" title="公式LINE">💬</a>
   <a href="contact.html" title="お問い合わせフォーム">✉️</a>
 </div>
 
-<!-- スライダー -->
 <section class="slider">
   <div class="slides">
     <img src="images/test1.jpg" class="active" alt="代表作品1">
@@ -189,16 +205,16 @@
   </div>
   <div class="prev">&#10094;</div>
   <div class="next">&#10095;</div>
-  <div class="dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
 </section>
 
-<!-- リンクボタン -->
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
 <section class="links">
   <a href="profile.html" class="link-card">
     <img src="icon-profile.png" alt="プロフィール">
@@ -218,7 +234,6 @@
   </a>
 </section>
 
-
 <section class="notice">
   現在、受注は月2件までとさせていただいております。<br>
   お問い合わせはフォームまたはLINE公式からお願いいたします。
@@ -233,7 +248,6 @@
 </footer>
 
 <script>
-  // --- スライダー ---
   let slideIndex = 0;
   const slides = document.querySelectorAll('.slides img');
   const dots = document.querySelectorAll('.dot');
@@ -257,7 +271,6 @@
     showSlide(slideIndex);
   }
 
-  // 自動切替
   function startSlide() {
     slideInterval = setInterval(nextSlide, 3000);
   }
@@ -265,15 +278,12 @@
     clearInterval(slideInterval);
   }
 
-  // 初期表示
   showSlide(slideIndex);
   startSlide();
 
-  // ナビボタン
   document.querySelector('.next').addEventListener('click', () => { nextSlide(); stopSlide(); startSlide(); });
   document.querySelector('.prev').addEventListener('click', () => { prevSlide(); stopSlide(); startSlide(); });
 
-  // ドットナビ
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
       showSlide(i);
@@ -285,4 +295,3 @@
 
 </body>
 </html>
-

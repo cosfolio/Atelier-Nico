@@ -25,12 +25,26 @@
     background-color:#ffffff;
     border-bottom: 1px solid #eee;
   }
-  header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    color:#222;
-  }
+ /* 全体の基本フォントを「Noto Sans JP」に変更 */
+* {
+  margin:0; 
+  padding:0; 
+  box-sizing:border-box; 
+  font-family: 'Noto Sans JP', sans-serif; /* ここを変更 */
+  font-weight: 300; /* 少し細めにすると透明感が出ます */
+}
+/* タイトル部分を上品な明朝体にする */
+header h1 {
+  font-family: 'Shippori Mincho', serif; /* 明朝体に変更 */
+  font-size: 2.5rem;
+  letter-spacing: 4px; /* 文字の間隔を広げるとよりお洒落に */
+  color:#222;
+}
+ /* 欧文（英語）を Montserrat にしたい場合（メニューや数字など） */
+.link-card span, footer {
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  letter-spacing: 1px;
+}
   header p {
     font-size: 1rem;
     color:#777;
@@ -304,6 +318,7 @@
 
 </body>
 </html>
+
 
 
 

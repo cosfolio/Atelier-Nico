@@ -124,10 +124,27 @@
     color:#aaa;
   }
 
-  @media(max-width:600px){
-    .portfolio {grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;}
-    header h1 { font-size: 1.5rem; }
+/* --- 元のコード --- */
+@media(max-width:600px){
+  .portfolio {
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); ここを書き換え */
+    grid-template-columns: repeat(3, 1fr); /* 強制的に3列にする */
+    gap: 8px; /* スマホでは隙間を少し狭くすると綺麗です */
+    padding: 0 10px 40px 10px; /* 左右の余白も少し調整 */
   }
+  header h1 { font-size: 1.5rem; }
+  
+  /* スマホだと文字が大きすぎる場合、少し小さく調整 */
+  .item-info {
+    padding: 10px 5px;
+  }
+  .item-info h3 {
+    font-size: 0.7rem;
+  }
+  .item-info span {
+    font-size: 0.5rem;
+  }
+}
 </style>
 </head>
 <body>

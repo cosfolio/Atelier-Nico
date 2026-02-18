@@ -128,7 +128,14 @@
   .notice {
     padding: 40px 20px; background: #f9fbfc; border-radius: 15px;
     text-align: center; font-size: 0.95rem; color: #666; line-height: 1.8;
-  }
+ 
+
+  /* --- ここから追記 --- */
+  position: relative; /* 重なりの順序を有効にする */
+  z-index: 10;        /* 数値を大きくして他の要素より手前に出す */
+  margin-bottom: 40px; /* フッターとの間に少し余白を作る */
+  /* --- ここまで追記 --- */
+ }
 
   /* --- フッター --- */
   footer {
@@ -213,13 +220,21 @@
   </a>
   <a href="gallery.html" class="link-card">
     <img src="images/icon-works.png" alt="Galley">
-    <span>Galley</span>
+    <span>Gallery</span>
   </a>
 </section>
 
 <section class="notice">
-  現在、個人のお客様からのご依頼は <strong><a href="https://line.me/ti/p/@xxxx" style="text-decoration: underline; color: #222;">公式LINE</a></strong> にて承っております。<br>
-  法人・企業様はコンタクトフォームよりお問い合わせください。
+  現在、個人のお客様からのご依頼は 
+  <strong>
+    <a href="https://lin.ee/i2G6kR1" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #222;">
+      公式LINE
+    </a>
+  </strong> 
+  にて承っております。<br>
+  法人・企業様は
+<a href="contact.html" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #222;">コンタクトフォーム</a>
+よりお問い合わせください。
 </section>
 
 <footer>

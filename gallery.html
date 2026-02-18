@@ -51,6 +51,41 @@
     font-weight:400;
   }
 
+  /* --- カテゴリフィルター --- */
+ .filter-buttons {
+   text-align: center;
+   margin-bottom: 30px;
+  }
+ .filter-btn {
+   background: none;
+   border: none;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 0.8rem;
+   margin: 0 10px;
+   cursor: pointer;
+   color: #aaa;
+   transition: 0.3s;
+   padding-bottom: 5px;
+   border-bottom: 1px solid transparent;
+  }
+ .filter-btn.active {
+   color: #222;
+   border-bottom: 1px solid #222;
+  }
+
+/* アニメーション用の設定 */
+.portfolio-item {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* 非表示状態のクラス */
+.portfolio-item.hide {
+  display: none; /* 完全に詰めたい場合はこちら */
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+
   /* --- 作品グリッド（ギャラリー風にアレンジ） --- */
   .portfolio {
     display:grid;
@@ -160,43 +195,68 @@
 
 <h2 class="main-title">Galley</h2>
 
-<section class="portfolio">
-  <a href="costume1.html" class="portfolio-item">
+<div class="filter-buttons">
+  <button class="filter-btn active" data-target="all">All</button>
+  <button class="filter-btn" data-target="costume">衣装</button>
+  <button class="filter-btn" data-target="prop">造形</button>
+  <button class="filter-btn" data-target="wig">ウィッグ</button>
+  <button class="filter-btn" data-target="other">Other</button>
+</div>
+
+<section class="portfolio" id="portfolio-grid">
+  <a href="costume1.html" class="portfolio-item" data-category="costume">
     <img src="images/costume1-thumb.jpg" alt="衣装1">
-    <div class="item-info">
-      <span>Costume</span>
-      <h3>魔法少女風ドレスセット</h3>
-    </div>
+    <div class="item-info"><span>Costume</span><h3>魔法少女風ドレスセット</h3></div>
   </a>
 
-  <a href="costume2.html" class="portfolio-item">
+  <a href="costume2.html" class="portfolio-item" data-category="costume">
     <img src="images/costume2-thumb.jpg" alt="衣装2">
-    <div class="item-info">
-      <span>Costume</span>
-      <h3>レザージャケットセット</h3>
-    </div>
+    <div class="item-info"><span>Costume</span><h3>レザージャケットセット</h3></div>
   </a>
 
-  <a href="wig1.html" class="portfolio-item">
+  <a href="wig1.html" class="portfolio-item" data-category="wig">
     <img src="images/wig1-thumb.jpg" alt="ウィッグ1">
-    <div class="item-info">
-      <span>Wig</span>
-      <h3>キャラクターセットウィッグ</h3>
-    </div>
+    <div class="item-info"><span>Wig</span><h3>キャラクターセットウィッグ</h3></div>
   </a>
 
-  <a href="prop1.html" class="portfolio-item">
+  <a href="prop1.html" class="portfolio-item" data-category="prop">
     <img src="images/prop1-thumb.jpg" alt="造形1">
-    <div class="item-info">
-      <span>Prop</span>
-      <h3>装飾用杖</h3>
-    </div>
+    <div class="item-info"><span>Prop</span><h3>装飾用杖</h3></div>
   </a>
 </section>
+
 
 <footer>
   &copy; 2026 Atelier Nico
 </footer>
+<script>
+const filterButtons = document.querySelectorAll('.filter-btn');
+const items = document.querySelectorAll('.portfolio-item');
 
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // ボタンの見た目の切り替え
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const target = button.getAttribute('data-target');
+
+    items.forEach(item => {
+      // 一旦フェードアウトさせる
+      item.style.opacity = '0';
+      
+      setTimeout(() => {
+        if (target === 'all' || item.getAttribute('data-category') === target) {
+          item.style.display = 'block';
+          // わずかに遅らせてフェードイン（すっと出る演出）
+          setTimeout(() => { item.style.opacity = '1'; }, 50);
+        } else {
+          item.style.display = 'none';
+        }
+      }, 300); // フェードアウトの時間に合わせる
+    });
+  });
+});
+</script>
 </body>
 </html>
